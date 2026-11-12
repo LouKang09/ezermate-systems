@@ -11,3 +11,19 @@
 
 /* Original supplied brand artwork, displayed without cropping. */
 .brand>img{width:46px;height:46px;object-fit:contain;border-radius:8px;background:#fff}.brand-banner{margin-top:26px;overflow:hidden;border-radius:12px;background:#fff}.brand-banner>img{display:block;width:100%;height:auto}.brand-banner+.hero{padding-top:45px}@media(max-width:520px){.brand>img{width:40px;height:40px}.brand-banner{margin-top:18px;border-radius:7px}.brand-banner+.hero{padding-top:32px}}
+
+/* Terminal-inspired interaction feedback; content stays usable without GSAP. */
+.gsap-motion .reveal{transition:none}
+.gsap-motion .hero-chart>div,.gsap-motion .floating{animation:none}
+.pos-demo{perspective:1100px}
+.product,.checkout-button,.category-tabs button,.industry-tabs button,.button{touch-action:manipulation}
+.product:focus-visible,.category-tabs button:focus-visible{outline:2px solid #1945ff;outline-offset:3px}
+.product:hover{border-color:#5274ff;box-shadow:0 5px 16px #1945ff14}
+.product:active,.checkout-button:active,.button:active{scale:.97}
+.checkout-button{transition:background .18s,box-shadow .18s,scale .12s}
+.checkout-button:not(:disabled):hover{box-shadow:0 0 0 3px #1945ff20,0 4px 18px #1945ff18}
+.category-tabs button{transition:background .18s,color .18s,box-shadow .18s}
+.category-tabs button[aria-pressed=true]{box-shadow:0 0 0 2px #1945ff25}
+.order-total strong{font-variant-numeric:tabular-nums;display:inline-block}
+.demo-toast{border-color:#617aff}
+@media(prefers-reduced-motion:reduce){.product:active,.checkout-button:active,.button:active{scale:1}}

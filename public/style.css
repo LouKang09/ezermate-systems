@@ -27,3 +27,43 @@
 .order-total strong{font-variant-numeric:tabular-nums;display:inline-block}
 .demo-toast{border-color:#617aff}
 @media(prefers-reduced-motion:reduce){.product:active,.checkout-button:active,.button:active{scale:1}}
+
+
+/* 2026 engagement refresh: prominent visitor counter, contact feedback, and expressive motion. */
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:4px;background:#a6d742;transform:scaleX(0);transform-origin:left center;z-index:2000;pointer-events:none;box-shadow:0 1px 7px #8dac4680}
+.visitor-meter{display:inline-flex;align-items:center;gap:9px;background:#e9f1d9;border:1px solid #c7d6b0;border-radius:999px;padding:7px 12px;color:#293a27;white-space:nowrap;flex-shrink:0;font-size:12px;box-shadow:0 3px 12px #465b1a0b}
+.visitor-meter .visitor-eye{font-size:15px;line-height:1;color:#607c3c}
+.visitor-meter .visitor-label{font-size:9px;letter-spacing:.7px;text-transform:uppercase;font-weight:700;color:#64734f}
+.visitor-meter strong{font-variant-numeric:tabular-nums;font-size:14px;font-weight:800;letter-spacing:.2px;min-width:1.5ch}
+.visitor-meter .visitor-dot{width:6px;height:6px;border-radius:50%;background:#6d9d36;box-shadow:0 0 0 3px #83a85a25;animation:visitor-beat 2.8s ease-in-out infinite}
+.header{gap:14px}
+.contact .button:disabled{opacity:.65;cursor:wait;transform:none;box-shadow:none}
+.contact #form-status[data-state="success"]{background:#ffffff7a;border-color:#4c853c;color:#204427;font-weight:600}
+.contact #form-status[data-state="error"]{background:#fff2e3;border-color:#bd6d3d;color:#72351d;font-weight:600}
+.honey-field{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+.solution-card{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease,background .4s ease}
+.solution-card:hover{transform:translateY(-9px);box-shadow:0 20px 32px #223f2415}
+.solution-card:hover .card-visual{filter:saturate(1.16)}
+.hero-art .orbit-one{border-style:dashed;animation:orbit-spin 34s linear infinite}
+.hero-art .orbit-two{border-style:dotted;animation:orbit-spin 46s linear infinite reverse}
+.hero-art .receipt-icon{animation:visitor-beat 3s ease-in-out infinite}
+.service-strip i{display:inline-block;animation:star-wave 3.2s ease-in-out infinite}
+.service-strip i:nth-of-type(2){animation-delay:.4s}
+.service-strip i:nth-of-type(3){animation-delay:.8s}
+.service-strip i:nth-of-type(4){animation-delay:1.2s}
+.hero-art{box-shadow:0 24px 56px #26362e0c}
+.hero-art:hover .terminal{filter:drop-shadow(0 10px 12px #3448341b)}
+.hero .button.lime{position:relative;overflow:hidden;isolation:isolate}
+.hero .button.lime:after{content:'';position:absolute;top:-40%;bottom:-40%;left:-90px;width:38px;transform:rotate(25deg);background:linear-gradient(90deg,transparent,#fff9,transparent);animation:button-shine 6s ease-in-out infinite;z-index:-1;pointer-events:none}
+.automation-row .automation-mark{display:inline-block;animation:star-wave 4s ease-in-out infinite}
+.industry-orb{animation:orbit-spin 36s linear infinite;border-style:dashed}
+.process-grid article:hover h3{color:#4d6a30;transition:color .2s}
+.faq-list summary:hover{color:#4e7430}
+@keyframes visitor-beat{0%,100%{box-shadow:0 0 0 3px #83a85a25;transform:scale(1)}50%{box-shadow:0 0 0 6px #83a85a0e;transform:scale(1.08)}}
+@keyframes orbit-spin{to{rotate:360deg}}
+@keyframes star-wave{0%,100%{transform:scale(1) rotate(0);opacity:.85}50%{transform:scale(1.24) rotate(22deg);opacity:1}}
+@keyframes button-shine{0%,65%{left:-90px}88%,100%{left:calc(100% + 90px)}}
+@media(max-width:1000px){.visitor-meter{gap:6px;padding:7px 9px}.visitor-meter .visitor-label{display:none}}
+@media(max-width:650px){.header{gap:7px}.visitor-meter{padding:6px 7px}.visitor-meter strong{font-size:12px}.visitor-meter .visitor-dot{display:none}.visitor-meter .visitor-eye{font-size:13px}}
+@media(max-width:380px){.header .brand{font-size:19px}.header .brand>img{width:34px;height:34px}.visitor-meter{padding:5px 6px}}
+@media(prefers-reduced-motion:reduce){.visitor-meter .visitor-dot,.hero-art .orbit,.hero-art .receipt-icon,.service-strip i,.hero .button.lime:after,.automation-row .automation-mark,.industry-orb{animation:none!important}.solution-card:hover{transform:none}}

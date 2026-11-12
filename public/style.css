@@ -67,3 +67,6 @@
 @media(max-width:650px){.header{gap:7px}.visitor-meter{padding:6px 7px}.visitor-meter strong{font-size:12px}.visitor-meter .visitor-dot{display:none}.visitor-meter .visitor-eye{font-size:13px}}
 @media(max-width:380px){.header .brand{font-size:19px}.header .brand>img{width:34px;height:34px}.visitor-meter{padding:5px 6px}}
 @media(prefers-reduced-motion:reduce){.visitor-meter .visitor-dot,.hero-art .orbit,.hero-art .receipt-icon,.service-strip i,.hero .button.lime:after,.automation-row .automation-mark,.industry-orb{animation:none!important}.solution-card:hover{transform:none}}
+
+/* Keep the counter clearly labeled on most phone screens. */
+@media(max-width:650px) and (min-width:381px){.visitor-meter .visitor-label{display:inline;font-size:8px;letter-spacing:0}}

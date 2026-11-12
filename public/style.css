@@ -8,3 +8,6 @@
 .arrow-icon{display:inline-block;width:1em;height:1em;min-width:10px;min-height:10px;vertical-align:-.1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 @media(max-width:520px){.hero h1{font-size:clamp(46px,14vw,64px);letter-spacing:-3px}.hero h1 .spark{font-size:42px;margin-left:25px}}
+
+/* Original supplied brand artwork, displayed without cropping. */
+.brand>img{width:46px;height:46px;object-fit:contain;border-radius:8px;background:#fff}.brand-banner{margin-top:26px;overflow:hidden;border-radius:12px;background:#fff}.brand-banner>img{display:block;width:100%;height:auto}.brand-banner+.hero{padding-top:45px}@media(max-width:520px){.brand>img{width:40px;height:40px}.brand-banner{margin-top:18px;border-radius:7px}.brand-banner+.hero{padding-top:32px}}

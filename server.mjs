@@ -14,5 +14,5 @@ http.createServer(async (req,res) => {
   if(path === '/health') {res.writeHead(200,{'Content-Type':'application/json'});return res.end(req.method==='HEAD'?undefined:'{"status":"ok"}');}
   const file = resolve(root, '.' + (path === '/' ? '/index.html' : path));
   if(!file.startsWith(root + '/')){res.writeHead(403);return res.end('Forbidden');}
-  try {const data = await readFile(file);res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream','Cache-Control':'public, max-age=300'});res.end(req.method==='HEAD'?undefined:data);} catch {res.writeHead(404,{'Content-Type':'text/plain'});res.end('Page not found');}
+  try {const data = await readFile(file);res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream','Cache-Control':extname(file)==='.html'?'no-cache, must-revalidate':'public, max-age=300'});res.end(req.method==='HEAD'?undefined:data);} catch {res.writeHead(404,{'Content-Type':'text/plain'});res.end('Page not found');}
 }).listen(Number(process.env.PORT)||3000,'0.0.0.0');

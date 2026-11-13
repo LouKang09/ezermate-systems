@@ -39,8 +39,25 @@ function json(res, status, body, extraHeaders = {}) {
   res.end(JSON.stringify(body));
 }
 
-function visitorCookiePresent(req) {
-  return /(?:^|;\s*)ezm_visitor=[a-f0-9]{32}(?:;|$)/.test(req.headers.cookie || '');
+// Visitors = approximate distinct browsers with a first-party cookie.
+// Online now = browser sessions seen in the last 60 seconds; it is not a human headcount.
+const onlineSessions = new Map();
+const ONLINE_WINDOW_MS = 60_000;
+
+function visitorId(req) {
+  const match = /(?:^|;\s*)ezm_visitor=([a-f0-9]{32})(?:;|$)/.exec(req.headers.cookie || '');
+  return match?.[1] ?? null;
+}
+function onlineNow() {
+  const cutoff = Date.now() - ONLINE_WINDOW_MS;
+  for (const [id, lastSeen] of onlineSessions) {
+    if (lastSeen < cutoff) onlineSessions.delete(id);
+  }
+  return onlineSessions.size;
+}
+function recordOnline(id) {
+  if (id) onlineSessions.set(id, Date.now());
+  return onlineNow();
 }
 
 function isCrawler(req) {
@@ -209,14 +226,24 @@ const server = http.createServer(async (req, res) => {
     return json(res, 200, { status: 'ok' });
   }
   if (path === '/api/visitors' && req.method === 'GET') {
-    if (!visitorCookiePresent(req) && !isCrawler(req)) {
-      const count = await registerVisitor();
-      return json(res, 200, { visitors: count }, {
-        'Set-Cookie': 'ezm_visitor=' + randomBytes(16).toString('hex') +
+    const existingId = visitorId(req);
+    if (!isCrawler(req) && !existingId) {
+      const id = randomBytes(16).toString('hex');
+      await registerVisitor();
+      return json(res, 200, {
+        visitors: visitorCount,
+        online: recordOnline(id),
+        updatedAt: new Date().toISOString()
+      }, {
+        'Set-Cookie': 'ezm_visitor=' + id +
           '; Path=/; Max-Age=31536000; SameSite=Lax; Secure; HttpOnly'
       });
     }
-    return json(res, 200, { visitors: visitorCount });
+    return json(res, 200, {
+      visitors: visitorCount,
+      online: isCrawler(req) ? onlineNow() : recordOnline(existingId),
+      updatedAt: new Date().toISOString()
+    });
   }
   if (path === '/api/contact' && req.method === 'POST') {
     return handleContact(req, res);

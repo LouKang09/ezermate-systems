@@ -345,3 +345,33 @@ body{
   .visitor-meter .visitor-dot,.service-strip{animation:none!important}
   .header .nav-cta:hover,.header .visitor-meter:hover{transform:none}
 }
+
+
+/* 2026-11-13: lock traffic badge and contact CTA to the same baseline and height. */
+@media(min-width:651px){
+  .header{align-items:center}
+  .header>.visitor-meter,
+  .header>.nav-cta{
+    box-sizing:border-box;
+    align-self:center;
+    height:56px;
+    min-height:56px;
+    margin-block:0;
+    display:inline-flex;
+    align-items:center;
+    vertical-align:middle;
+  }
+  .header>.visitor-meter{justify-content:flex-start}
+  .header>.nav-cta{justify-content:space-between}
+  /* Neither item should move away from the shared centerline on hover. */
+  .header>.visitor-meter:hover,
+  .header>.nav-cta:hover{transform:none}
+}
+@media(max-width:650px){
+  .header>.visitor-meter{
+    align-self:center;
+    height:42px;
+    min-height:42px;
+    margin-block:0;
+  }
+}

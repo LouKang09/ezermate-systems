@@ -70,3 +70,278 @@
 
 /* Keep the counter clearly labeled on most phone screens. */
 @media(max-width:650px) and (min-width:381px){.visitor-meter .visitor-label{display:inline;font-size:8px;letter-spacing:0}}
+
+
+/* EzerMate signature refresh — 2026-11-13. Brand artwork remains uncropped. */
+:root{
+  --paper:#f7f9fd;
+  --ink:#18263d;
+  --muted:#63738b;
+  --line:#e1e7f2;
+  --lime:#cfe1ff;
+  --cobalt:#153bff;
+  --cobalt-dark:#122c9e;
+  --cobalt-pale:#eef2ff;
+}
+body{
+  background:
+    radial-gradient(ellipse 650px 280px at 12% 10%,#e9f1ff 0%,transparent 85%),
+    radial-gradient(ellipse 620px 320px at 94% 25%,#eff1ff 0%,transparent 85%),
+    var(--paper);
+}
+.header{
+  display:grid;
+  grid-template-columns:minmax(200px,1fr) auto minmax(220px,1fr) auto;
+  align-items:center;
+  gap:20px;
+  width:min(1420px,calc(100% - 64px));
+  min-height:90px;
+  height:auto;
+  border-bottom-color:#e1e7f2;
+}
+.header .brand{white-space:nowrap}
+.header .desktop-nav{justify-self:center;white-space:nowrap}
+.header .desktop-nav a:after{background:var(--cobalt)}
+.header .visitor-meter{justify-self:end}
+.header .nav-cta{
+  justify-self:end;
+  margin:0;
+  border-color:#cbd7ec;
+  background:#fff;
+  color:#192b51;
+  border-radius:12px;
+  box-shadow:0 3px 14px #19376508;
+  padding:13px 17px;
+  min-height:46px;
+  transition:background .25s,color .25s,border-color .25s,transform .25s,box-shadow .25s;
+}
+.header .nav-cta:hover{
+  background:var(--cobalt);color:#fff;border-color:var(--cobalt);
+  transform:translateY(-2px);box-shadow:0 9px 22px #153bff26;
+}
+/* Counter is deliberately the penultimate desktop header item: directly before CTA. */
+.header .visitor-meter{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  margin:0;
+  padding:6px 12px 6px 7px;
+  border:1px solid #d5e0f5;
+  background:linear-gradient(145deg,#fff,#f4f8ff);
+  border-radius:14px;
+  box-shadow:0 7px 19px #1b45bd0b;
+  min-height:49px;
+  min-width:244px;
+  color:var(--ink);
+  white-space:nowrap;
+  transition:box-shadow .3s,border-color .3s,transform .3s;
+}
+.header .visitor-meter:hover{
+  border-color:#b6cafa;
+  transform:translateY(-2px);
+  box-shadow:0 11px 25px #1b45bd17;
+}
+.visitor-meter .visitor-eye{
+  width:32px;height:32px;min-width:32px;
+  display:grid;place-items:center;
+  color:var(--cobalt);background:#eaf0ff;border-radius:10px;
+}
+.visitor-meter .visitor-stat{
+  display:flex;flex-direction:column;gap:4px;align-items:flex-start;line-height:1;
+}
+.visitor-meter .visitor-label{
+  display:inline-flex;align-items:center;gap:5px;
+  color:#7785a0;font-size:9px;letter-spacing:.15px;
+  font-weight:700;text-transform:uppercase;
+}
+.visitor-meter .visitor-stat strong{
+  font-size:18px;line-height:1.08;
+  color:#193454;letter-spacing:-.35px;
+  font-weight:800;min-width:1ch;
+  font-variant-numeric:tabular-nums;
+}
+.visitor-meter .visitor-stat-online strong{color:#177954}
+.visitor-meter .visitor-divider{display:block;width:1px;align-self:stretch;min-height:26px;background:#d9e3f4}
+.visitor-meter .visitor-dot{
+  width:7px;height:7px;min-width:7px;
+  display:inline-block;background:#1bae75;
+  border-radius:50%;box-shadow:0 0 0 3px #16b46b1c;
+  animation:online-pulse 2.4s ease-in-out infinite;
+}
+.visitor-meter.is-stale .visitor-dot{background:#a9b1bf;animation:none}
+.visitor-meter.is-stale{border-color:#e1e4ea}
+.scroll-progress{height:3px;background:linear-gradient(90deg,#103fff,#57a3ff);box-shadow:0 0 12px #2551ff3b}
+@keyframes online-pulse{
+  0%,100%{box-shadow:0 0 0 3px #16b46b16;opacity:1}
+  50%{box-shadow:0 0 0 6px #16b46b08;opacity:.68}
+}
+/* Brand banner remains 100% visible, but doesn't consume the whole first viewport. */
+.brand-banner.wrap{
+  width:min(1080px,calc(100% - 72px));
+  margin:25px auto 0;
+  padding:10px;
+  border:1px solid #e1e9fa;
+  border-radius:22px;
+  background:linear-gradient(135deg,#eef2ff,#fff 45%,#e7efff);
+  box-shadow:0 16px 45px #183e9e12,0 3px 10px #1738790a;
+  overflow:hidden;
+}
+.brand-banner>img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  border-radius:15px;
+}
+.brand-banner+.hero{padding-top:53px}
+.hero{gap:30px}
+.hero .eyebrow{color:#4563a1}
+.hero .status-dot{background:#235dff;box-shadow:0 0 0 5px #255cf51a}
+.hero h1{letter-spacing:-.065em}
+.hero h1 .serif{
+  background:linear-gradient(95deg,#1741ed 10%,#5378ff 95%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .spark{color:#2d58fa}
+.hero-copy>p{color:#617187}
+.hero .button.lime{
+  background:linear-gradient(110deg,#153bff,#345eff);
+  color:#fff;border-radius:10px;
+  box-shadow:0 9px 24px #153bff27;
+}
+.hero .button.lime:hover{box-shadow:0 13px 27px #153bff46}
+.hero-note .mini-mark{border-color:#c6d7ff;color:#244fdf;background:#ecf2ff}
+.hero-art{
+  background:linear-gradient(150deg,#e6ecff 0%,#eaf1ff 58%,#e0eaff 100%);
+  box-shadow:0 22px 46px #1947a31a;
+}
+.hero-art:before{background-image:radial-gradient(#416dff33 1px,transparent 1px)}
+.hero-art .orbit{border-color:#6791e777}
+.hero-art .terminal{border-color:#172c69;box-shadow:14px 22px 35px #1b377b35}
+.hero-art .terminal-top{background:#172c69}
+.hero-art .terminal-rail .selected{background:#e0e9ff}
+.hero-art .receipt{background:#142c65}
+.hero-art .receipt-icon{background:#d4e5ff}
+.hero-art .inventory{border:1px solid #dbe5ff}
+.service-strip{
+  background:linear-gradient(105deg,#12264e,#12377c 52%,#0f2e69);
+  color:#eaf1ff;background-size:165% 165%;
+  animation:strip-gradient 14s ease-in-out infinite alternate;
+}
+.service-strip i{color:#82a9ff}
+@keyframes strip-gradient{to{background-position:100% 100%}}
+.section{scroll-margin-top:36px}
+.section-top h2{letter-spacing:-.046em}
+.solution-card{
+  border:1px solid #e0e9f8;
+  background:linear-gradient(155deg,#fff,#edf3fe);
+  box-shadow:0 7px 20px #233c7310;
+  border-radius:18px;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;
+}
+.solution-card.featured{background:linear-gradient(150deg,#eaf1ff,#dce9ff);border-color:#d3e1ff}
+.solution-card:hover{border-color:#adc5ff;box-shadow:0 18px 38px #153bff18}
+.solution-card h3{color:#162a4c}
+.solution-card p{color:#62748c}
+.solution-card .card-number{color:#405eab}
+.solution-card .checkout-visual{border:1px solid #e0e8f8}
+.solution-card .report-bars i{background:#a6bffe}
+.solution-card .report-bars i:last-child{background:#2650eb}
+.solution-card .stock-visual i:after{background:#749df2}
+.automation-row .automation-mark{color:#315ef3}
+.automation-row:hover .circle-arrow{background:#dce8ff;border-color:#789cf8}
+.playground{
+  background:radial-gradient(ellipse 590px 420px at 92% 20%,#234e9e 0%,transparent 74%),linear-gradient(120deg,#11254a,#101d34 62%,#0f2556);
+  color:#eff4ff;
+}
+.playground .eyebrow{color:#b8cdfd}
+.playground .status-dot{background:#6b9afa}
+.playground-copy>p{color:#c6d4eb}
+.playground .pos-demo{border:1px solid #b7c9ef;box-shadow:0 25px 62px #040f2b88}
+.playground .demo-steps>div>span{border-color:#6c8bc3;color:#a8c3ff}
+.playground .category-tabs button.active{background:#2045ae;border-color:#2045ae}
+.industry-art{background:linear-gradient(135deg,#dce9ff,#f1f4ff)}
+.industry-panel{border:1px solid #dbe5fa;border-radius:14px;overflow:hidden;box-shadow:0 8px 25px #1b3e7911}
+.industry-orb{border-color:#a9c1f0}
+.industry-orb:after{border-color:#acc3f0}
+.industry-tabs button[aria-selected=true]{color:var(--cobalt)}
+.approach{background:linear-gradient(160deg,#edf3ff,#e9f0fc)}
+.process-no{color:#3250a1;border-top-color:#b7c9ed}
+.process-grid h3{color:#20365d}
+.faq-list summary:hover{color:#1945f2}
+.contact-card{
+  background:linear-gradient(120deg,#e2edff 0%,#d8e8ff 56%,#c9dcff 100%);
+  border:1px solid #b8cdf3;
+  box-shadow:0 21px 50px #153bff1a;
+  border-radius:22px;
+}
+.contact .eyebrow{color:#2450aa}
+.contact-copy h2{color:#162a4c}
+.contact-copy .contact-email{border-bottom-color:#84a6f3}
+.contact-decoration{color:#2555ff13}
+.contact input,.contact select,.contact textarea{
+  background:#ffffff9c;border:1px solid #adc3ec;color:#18273d;
+}
+.contact input::placeholder,.contact textarea::placeholder{color:#6a7d9a}
+.contact input:focus,.contact textarea:focus,.contact select:focus{outline-color:#3159ff}
+.footer-bottom{border-color:#dce5f4}
+/* Adaptive header: keep the counter immediately before the CTA or mobile menu. */
+@media(max-width:1180px){
+  .header{grid-template-columns:minmax(165px,1fr) auto minmax(188px,.9fr) auto;gap:13px}
+  .desktop-nav{gap:19px}
+  .visitor-meter .visitor-eye{display:none}
+  .header .visitor-meter{min-width:196px;gap:8px;padding:7px 10px}
+  .visitor-meter .visitor-stat strong{font-size:16px}
+}
+@media(max-width:980px){
+  .header{display:flex;justify-content:flex-start;gap:13px;width:calc(100% - 48px);min-height:82px}
+  .header .desktop-nav{display:none}
+  .header .visitor-meter{margin-left:auto}
+  .header .nav-cta{margin:0}
+  .menu-toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:41px;height:40px;border:1px solid #cbd9f2;
+    border-radius:11px;background:#fff;color:#193e91;
+    font-size:21px;flex-shrink:0;
+  }
+  .mobile-nav{
+    position:absolute;z-index:20;top:76px;left:0;right:0;
+    display:flex;flex-direction:column;
+    background:#fff;padding:12px;
+    border:1px solid #dbe5f4;border-radius:13px;
+    box-shadow:0 18px 36px #18326d25;
+  }
+  .mobile-nav a{padding:14px;font-size:14px}
+}
+@media(max-width:650px){
+  .header{width:calc(100% - 26px);min-height:73px;gap:8px}
+  .header .brand{font-size:19px;letter-spacing:-.9px;gap:7px}
+  .header .brand>img{width:36px;height:36px}
+  .header .nav-cta{display:none}
+  .header .visitor-meter{min-width:0;gap:7px;padding:6px 8px;border-radius:11px;min-height:41px}
+  .visitor-meter .visitor-stat{gap:3px}
+  .visitor-meter .visitor-label{display:inline;font-size:8px;letter-spacing:0}
+  .visitor-meter .visitor-stat strong{font-size:13px}
+  .visitor-meter .visitor-divider{min-height:20px}
+  .visitor-meter .visitor-dot{display:inline-block;width:6px;height:6px;min-width:6px}
+  .header .menu-toggle{width:37px;height:37px}
+  .brand-banner.wrap{width:calc(100% - 28px);padding:5px;margin-top:17px;border-radius:14px}
+  .brand-banner>img{border-radius:10px}
+  .brand-banner+.hero{padding-top:37px}
+  .contact-card{border-radius:15px}
+}
+@media(max-width:390px){
+  .header{gap:5px}
+  .header .brand{font-size:17px}
+  .header .brand>img{width:30px;height:30px}
+  .visitor-meter .visitor-label{font-size:7px}
+  .header .visitor-meter{padding:5px 6px;gap:5px}
+  .header .visitor-meter .visitor-divider{min-height:19px}
+  .header .visitor-meter .visitor-dot{width:5px;height:5px;min-width:5px}
+  .header .menu-toggle{width:32px;height:34px}
+}
+@media(prefers-reduced-motion:reduce){
+  .visitor-meter .visitor-dot,.service-strip{animation:none!important}
+  .header .nav-cta:hover,.header .visitor-meter:hover{transform:none}
+}

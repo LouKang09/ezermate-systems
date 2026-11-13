@@ -134,8 +134,10 @@
   window.addEventListener('load', () => {
     if (prefersReducedMotion.matches || !window.gsap || !window.ScrollTrigger) return;
     const gsap = window.gsap;
-    gsap.from('.header .brand, .header .visitor-meter', {
-      autoAlpha: 0, y: -16, duration: .75, stagger: .14, ease: 'power3.out'
+    // Keep the visitor counter and CTA aligned, including during page load.
+    // Previously the badge started 16px higher than the CTA.
+    gsap.from('.header .brand', {
+      autoAlpha: 0, duration: .55, ease: 'power2.out'
     });
     gsap.from('.hero-art .terminal', {
       autoAlpha: 0, y: 34, scale: .94, duration: 1.15, ease: 'back.out(1.3)',

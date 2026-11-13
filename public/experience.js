@@ -2,40 +2,78 @@
 'use strict';
 (() => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Real values from the server; nothing is simulated or seeded in the browser.
+  // Total counts first-party tracked browsers, not page loads or identified people.
+  // Online counts sessions refreshed within the last 60 seconds.
   const visitorNumber = document.getElementById('visitor-count');
+  const onlineNumber = document.getElementById('visitor-online');
+  const visitorMeter = document.querySelector('.visitor-meter');
+  const visitorTooltip = visitorMeter?.getAttribute('title') || '';
+  let visitorsLoading = false;
 
-  function animateCount(end) {
-    if (!visitorNumber) return;
-    if (prefersReducedMotion.matches || end === 0) {
-      visitorNumber.textContent = end.toLocaleString('en-PH');
+  function updateNumber(element, next) {
+    if (!element || !Number.isSafeInteger(next) || next < 0) return;
+    const previous = Number(element.dataset.current);
+    if (element.dataset.current === String(next)) return;
+    const begin = Number.isFinite(previous) && element.dataset.current !== undefined
+      ? previous : Math.max(0, next - 12);
+    element.dataset.current = String(next);
+    if (prefersReducedMotion.matches) {
+      element.textContent = next.toLocaleString('en-PH');
       return;
     }
+    element.getAnimations().forEach(animation => animation.cancel());
     const start = performance.now();
-    const duration = 1100;
+    const duration = 650;
     function frame(now) {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - t, 3);
-      visitorNumber.textContent = Math.floor(end * eased).toLocaleString('en-PH');
-      if (t < 1) requestAnimationFrame(frame);
+      if (element.dataset.current !== String(next)) return;
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      element.textContent = Math.round(begin + (next - begin) * eased).toLocaleString('en-PH');
+      if (progress < 1) window.requestAnimationFrame(frame);
     }
-    requestAnimationFrame(frame);
+    window.requestAnimationFrame(frame);
   }
 
-  if (visitorNumber) {
-    fetch('/api/visitors', { cache: 'no-store', credentials: 'same-origin' })
-      .then(response => {
-        if (!response.ok) throw new Error('Visitor counter unavailable');
-        return response.json();
-      })
-      .then(data => {
-        if (Number.isSafeInteger(data.visitors) && data.visitors >= 0) {
-          animateCount(data.visitors);
-        }
-      })
-      .catch(() => {
-        visitorNumber.textContent = '—';
-        visitorNumber.closest('.visitor-meter')?.setAttribute('title', 'Visitor count is temporarily unavailable');
+  async function refreshVisitors() {
+    if (!visitorNumber || !onlineNumber || visitorsLoading || document.hidden) return;
+    visitorsLoading = true;
+    try {
+      const response = await fetch('/api/visitors', {
+        cache: 'no-store',
+        credentials: 'same-origin'
       });
+      if (!response.ok) throw new Error('Visitor service not available');
+      const data = await response.json();
+      if (!Number.isSafeInteger(data.visitors) || !Number.isSafeInteger(data.online)) {
+        throw new Error('Incomplete visitor data');
+      }
+      updateNumber(visitorNumber, data.visitors);
+      updateNumber(onlineNumber, data.online);
+      if (visitorMeter) {
+        visitorMeter.classList.remove('is-stale');
+        visitorMeter.title = visitorTooltip;
+      }
+    } catch {
+      // Don't replace a previously valid visitor total with a fabricated value.
+      if (visitorNumber && !visitorNumber.dataset.current) visitorNumber.textContent = '—';
+      if (onlineNumber && !onlineNumber.dataset.current) onlineNumber.textContent = '—';
+      if (visitorMeter) {
+        visitorMeter.classList.add('is-stale');
+        visitorMeter.title = 'Traffic data temporarily unavailable. ' + visitorTooltip;
+      }
+    } finally {
+      visitorsLoading = false;
+    }
+  }
+
+  if (visitorNumber && onlineNumber) {
+    refreshVisitors();
+    // Poll only while the page is visible; hidden tabs expire from the live count.
+    window.setInterval(refreshVisitors, 10_000);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) refreshVisitors();
+    });
   }
 
   const form = document.getElementById('inquiry-form');
@@ -121,10 +159,18 @@
       autoAlpha: 0, scaleX: .35, transformOrigin: 'left center', duration: .8, stagger: .16,
       ease: 'power3.out', scrollTrigger: { trigger: '.process-grid', start: 'top 90%', once: true }
     });
-    gsap.fromTo('.brand-banner img', { scale: 1.045 }, {
-      scale: 1, ease: 'none', scrollTrigger: {
-        trigger: '.brand-banner', start: 'top bottom', end: 'bottom top', scrub: .7
-      }
+    // The supplied brand artwork remains fully visible without image zoom or cropping.
+    gsap.from('.faq-list details', {
+      autoAlpha: 0, y: 18, duration: .55, stagger: .10, ease: 'power2.out',
+      scrollTrigger: { trigger: '.faq-list', start: 'top 90%', once: true }
+    });
+    gsap.from('.industry-tabs button', {
+      autoAlpha: 0, x: -18, duration: .50, stagger: .08, ease: 'power2.out',
+      scrollTrigger: { trigger: '.industry-layout', start: 'top 87%', once: true }
+    });
+    gsap.from('.contact-card', {
+      autoAlpha: 0, y: 36, duration: .85, ease: 'power3.out',
+      scrollTrigger: { trigger: '.contact-card', start: 'top 91%', once: true }
     });
   }, { once: true });
 })();

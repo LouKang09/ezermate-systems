@@ -13,10 +13,12 @@
 <meta property="og:description" content="Point of sale, inventory, reports, and automation designed around the way your business works.">
 <meta property="og:image" content="https://ezermatesystems.com/ezermate-banner.png">
 <link rel="icon" type="image/png" href="/ezermate-logo.png?v=20261122c"><link rel="apple-touch-icon" href="/ezermate-logo.png">
-<link rel="stylesheet" href="/sentra-layout.css?v=20261122c">
-<link rel="stylesheet" href="/responsive-enhancements.css?v=20261122c">
+<link rel="stylesheet" href="/sentra-layout.css?v=20261122d">
+<link rel="stylesheet" href="/responsive-enhancements.css?v=20261122d">
+<link rel="stylesheet" href="/pricing.css?v=20261122d">
 <script src="/favicon-enhance.js?v=20261122c" defer></script>
 <script src="/app.js?v=20261122b" defer></script>
+<script src="/pricing.js?v=20261122d" defer></script>
 <script src="/experience.js?v=20261122b" defer></script>
 </head>
 <body>
@@ -46,7 +48,7 @@
     <a class="header-demo" href="#contact">Book a consultation</a>
     <button type="button" class="menu-toggle" aria-label="Open navigation" aria-controls="mobile-nav" aria-expanded="false">☰</button>
   </div>
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#features">Features</a><a href="#industries">Built for</a><a href="#workflow">How it works</a><a href="#playground">POS demo</a><a href="#solutions">Solutions</a><a href="#contact">Book a consultation</a></nav>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#features">Features</a><a href="#industries">Built for</a><a href="#workflow">How it works</a><a href="#playground">POS demo</a><a href="#pricing">Pricing</a><a href="#contact">Book a consultation</a></nav>
 </header>
 <main id="main">
 <section class="hero section" aria-labelledby="hero-title">
@@ -55,7 +57,7 @@
    <h1 id="hero-title">Run your business smarter.<br><span>From one place.</span></h1>
    <p class="hero-lede">From your first sale to your next big decision—manage checkout, monitor inventory, understand your numbers, and automate repetitive work with systems built around your business.</p>
    <div class="hero-actions">
-     <a class="btn btn-primary" href="#solutions">Explore our solutions <svg class="icon"><use href="#icon-arrow"/></svg></a>
+     <a class="btn btn-primary" href="#pricing">Explore our solutions <svg class="icon"><use href="#icon-arrow"/></svg></a>
      <a class="btn btn-black" href="#playground">Try the interactive demo <svg class="icon"><use href="#icon-monitor"/></svg></a>
    </div>
    <div class="hero-microcopy">Designed for growing businesses in the Philippines. No commitment to explore.</div>
@@ -166,14 +168,107 @@
  </div>
  <p class="device-disclaimer">Device screens are design illustrations. Feature and browser compatibility depend on the chosen solution.</p>
 </div></section>
-<section class="solutions section" id="solutions"><div class="container">
- <div class="section-eyebrow">SOLUTIONS</div><h2>The right system starts<br>with the right conversation.</h2><p class="section-intro">No mystery bundles or made-up pricing. We assess your workflow and propose a scope that fits your business.</p>
- <div class="solution-grid">
-  <article class="solution-card"><span class="solution-number">01 / SELL SMARTER</span><div class="solution-mark"><svg class="icon"><use href="#icon-monitor"/></svg></div><h3>Point of Sale</h3><p>A modern sales flow for cafés, retail, and other transaction-driven businesses.</p><ul><li>Product & category setup</li><li>Order and payment workflows</li><li>Sales visibility</li></ul><a href="#contact">Discuss a POS system <svg class="icon"><use href="#icon-arrow"/></svg></a></article>
-  <article class="solution-card featured"><span class="solution-number">02 / STAY ORGANIZED</span><div class="solution-mark"><svg class="icon"><use href="#icon-box"/></svg></div><h3>Inventory & Reporting</h3><p>Connect daily stock movement with the business picture behind the numbers.</p><ul><li>Stock & ingredient tracking</li><li>Operational summaries</li><li>Custom dashboard requirements</li></ul><a href="#contact">Discuss inventory tools <svg class="icon"><use href="#icon-arrow"/></svg></a></article>
-  <article class="solution-card"><span class="solution-number">03 / WORK BETTER</span><div class="solution-mark"><svg class="icon"><use href="#icon-spark"/></svg></div><h3>Automation & Websites</h3><p>Replace repetitive manual work with a practical business solution.</p><ul><li>Custom workflow automation</li><li>Business websites</li><li>Specialized management tools</li></ul><a href="#contact">Tell us what you need <svg class="icon"><use href="#icon-arrow"/></svg></a></article>
- </div>
-</div></section>
+<section class="pricing-section section" id="pricing" aria-labelledby="pricing-title">
+  <div class="container">
+    <div class="pricing-header">
+      <div class="section-eyebrow">DONMAC POS · SUBSCRIPTION PLANS</div>
+      <h2 id="pricing-title">Simple pricing for every<br>stage of your business.</h2>
+      <p>Choose the DonMac POS plan that fits your operations today, with room to grow tomorrow.</p>
+      <div class="billing-switch" role="group" aria-label="Pricing period">
+        <button type="button" class="billing-tab selected" data-pricing-period="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" class="billing-tab" data-pricing-period="annual" aria-pressed="false">Annual</button>
+      </div>
+      <p class="billing-description" id="billing-description" role="status" aria-live="polite">Monthly base rates shown below. Additional branches are billed separately.</p>
+    </div>
+    <div class="pricing-grid">
+      <article class="pricing-card pricing-free" aria-label="Free plan, details pending">
+        <div class="pricing-card-top"><h3>Free</h3><p>A simpler way to get started, once available.</p></div>
+        <div class="pricing-amount"><strong>₱0</strong><span>/mo</span></div>
+        <div class="pricing-billing pending">Availability &amp; limits to be announced</div>
+        <dl class="pricing-features">
+          <div><dt>Sales &amp; checkout</dt><dd>To be defined</dd></div>
+          <div><dt>Inventory</dt><dd>To be defined</dd></div>
+          <div><dt>Sales reports</dt><dd>To be defined</dd></div>
+          <div><dt>Branches</dt><dd>To be defined</dd></div>
+          <div><dt>Team access</dt><dd>To be defined</dd></div>
+          <div><dt>Product limits</dt><dd>To be defined</dd></div>
+          <div><dt>History &amp; exports</dt><dd>To be defined</dd></div>
+          <div><dt>Activation</dt><dd>Not yet offered</dd></div>
+        </dl>
+        <div class="pricing-end">
+          <span class="pricing-unavailable" aria-label="Free plan coming soon">Free plan · Coming soon</span>
+        </div>
+      </article>
+      <article class="pricing-card pricing-featured" aria-label="Pro plan">
+        <div class="pricing-ribbon">★ MOST POPULAR</div>
+        <div class="pricing-card-top"><h3>Pro</h3><p>For day-to-day selling and up to three branches.</p></div>
+        <div class="pricing-amount" data-monthly-price="₱1,499"><strong>₱1,499</strong><span>/mo</span></div>
+        <div class="pricing-billing">Base subscription · Monthly</div>
+        <dl class="pricing-features">
+          <div><dt>Sales &amp; checkout</dt><dd>Included</dd></div>
+          <div><dt>Inventory &amp; replenishment</dt><dd>Included</dd></div>
+          <div><dt>Recipes &amp; costing</dt><dd>Included</dd></div>
+          <div><dt>Sales, expense &amp; transaction reports</dt><dd>Included</dd></div>
+          <div><dt>Standard dashboard &amp; audit</dt><dd>Included</dd></div>
+          <div><dt>Branches</dt><dd>1 included; up to 3</dd></div>
+          <div><dt>Extra branch fee</dt><dd>₱799 each / renewal</dd></div>
+          <div><dt>Branch-to-branch transfers</dt><dd>Not included</dd></div>
+          <div><dt>Advanced Analytics workspace</dt><dd>Not included</dd></div>
+          <div><dt>Online sales history</dt><dd>12 months</dd></div>
+        </dl>
+        <div class="pricing-end">
+          <a class="pricing-cta primary" href="https://donmacpos.com/" target="_blank" rel="noopener noreferrer">Choose Pro <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="pricing-card" aria-label="Business plan">
+        <div class="pricing-card-top"><h3>Business</h3><p>For larger operations and multiple branches.</p></div>
+        <div class="pricing-amount" data-monthly-price="₱2,599"><strong>₱2,599</strong><span>/mo</span></div>
+        <div class="pricing-billing">Base subscription · Monthly</div>
+        <dl class="pricing-features">
+          <div><dt>Everything in Pro</dt><dd>Included</dd></div>
+          <div><dt>Branches</dt><dd>No Pro 3-branch cap</dd></div>
+          <div><dt>Extra branch fee</dt><dd>₱899 each / renewal</dd></div>
+          <div><dt>Stock transfer management</dt><dd>Included</dd></div>
+          <div><dt>Advanced Analytics</dt><dd>6-section workspace</dd></div>
+          <div><dt>Store Performance dashboard</dt><dd>Included</dd></div>
+          <div><dt>Sales vs. expenses &amp; menu analysis</dt><dd>Included</dd></div>
+          <div><dt>Payment &amp; cashier analysis</dt><dd>Included</dd></div>
+          <div><dt>Operational alerts &amp; trends</dt><dd>Included</dd></div>
+          <div><dt>Online sales history</dt><dd>24 months</dd></div>
+        </dl>
+        <div class="pricing-end">
+          <a class="pricing-cta dark" href="https://donmacpos.com/" target="_blank" rel="noopener noreferrer">Choose Business <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="pricing-card" aria-label="Enterprise plan, consultation required">
+        <div class="pricing-card-top"><h3>Enterprise</h3><p>For businesses with unique or complex requirements.</p></div>
+        <div class="pricing-amount custom"><strong>Contact Sales</strong></div>
+        <div class="pricing-billing">Custom quote · Subject to agreed scope</div>
+        <dl class="pricing-features">
+          <div><dt>Plan structure</dt><dd>Custom proposal</dd></div>
+          <div><dt>Branch requirements</dt><dd>To be scoped</dd></div>
+          <div><dt>Team permissions</dt><dd>To be scoped</dd></div>
+          <div><dt>Reports &amp; integrations</dt><dd>To be scoped</dd></div>
+          <div><dt>Workflow customization</dt><dd>To be scoped</dd></div>
+          <div><dt>Deployment &amp; support</dt><dd>By agreement</dd></div>
+          <div><dt>Contract &amp; pricing</dt><dd>Custom quotation</dd></div>
+          <div><dt>Self-service signup</dt><dd>Not yet offered</dd></div>
+        </dl>
+        <div class="pricing-end">
+          <a class="pricing-cta dark" href="#contact">Contact Sales <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        </div>
+      </article>
+    </div>
+    <div class="pricing-fineprint">
+      <p><span class="pricing-confirmed" aria-hidden="true">✓</span> Pro and Business rates reflect DonMac POS Admin Control's current default base pricing. Final plan assignment, amount, payment status and renewal are confirmed by Admin Control. Additional branch fees apply at renewal.</p>
+      <p>Free and Enterprise are future/custom plan concepts, not active DonMac POS signup options. Annual pricing has not been set. The current DonMac POS registration supports Pro and Business requests only.</p>
+    </div>
+    <div class="pricing-details">
+      <div><span class="section-eyebrow">MORE IN THE PLANS</span><h3>What powers your day-to-day?</h3><p>Pro covers checkout, standard reporting, inventory monitoring and replenishment. Business adds inter-branch transfers, specialized reporting and the advanced analytics workspace—including branch, menu, payment, cashier and operational insights.</p></div>
+      <a href="#features">Explore the features <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
 <section class="faq section" id="faq"><div class="container"><div class="section-eyebrow">FAQ</div><h2>Frequently asked questions</h2><div class="faq-list">
  <details><summary>Can you customize the system for my business?<span>+</span></summary><p>Yes. We begin by understanding your products, services, team, and existing workflow, then agree on a practical scope for your business.</p></details>
  <details><summary>What does an EzerMate system cost?<span>+</span></summary><p>Pricing depends on the features, number of branches, integrations, device compatibility, and support needs. Contact us for a tailored quotation.</p></details>
@@ -207,7 +302,7 @@
 </main>
 <footer class="footer"><div class="container"><div class="footer-main">
  <div class="footer-brand"><a class="brand" href="#main"><img src="/ezermate-logo.png" width="42" height="42" alt=""><span class="brand-name">ezermate<small>SYSTEMS</small></span></a><p>Practical technology for the businesses that keep moving.</p></div>
- <nav class="footer-links" aria-label="Footer navigation"><a href="#features">Features</a><a href="#industries">Industries</a><a href="#workflow">Workflow</a><a href="#playground">Interactive demo</a><a href="#solutions">Solutions</a><a href="#contact">Contact</a></nav>
+ <nav class="footer-links" aria-label="Footer navigation"><a href="#features">Features</a><a href="#industries">Industries</a><a href="#workflow">Workflow</a><a href="#playground">Interactive demo</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a></nav>
  </div><div class="footer-bottom"><span>© <span id="year">2026</span> EzerMate Systems. All rights reserved.</span><span>Designed for Philippine businesses.</span><a href="#main">Back to top ↑</a></div>
 </div></footer>
 </body>
